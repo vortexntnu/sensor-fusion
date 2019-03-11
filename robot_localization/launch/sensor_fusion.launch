@@ -1,0 +1,31 @@
+<launch>
+
+	<!-- Stim300 driver -->
+
+	<node 
+	pkg = "drivers-imu_stim300"
+	type = "stim300"
+	name = "stim300_driver"
+	
+	args="/dev/ttyUSB0"
+	/>
+
+	
+	<!-- complementary filter -->
+	
+	<include
+	file = "$(find imu_complementary_filter)/launch/complementary_filter.launch" 
+	/>
+
+	<!-- Kalman filter -->
+
+	<include
+	file = "$(find robot_localization)/launch/ukf_sensor_fusion.launch"
+	/>
+
+	<!-- DVL -->
+	
+	<node pkg="dvl1000_ros" type="publisherDVL1000.py" name="publisherDVL1000" />
+
+
+</launch>

@@ -59,7 +59,7 @@ base_link_frame: base_link  # Defaults to "base_link" if unspecified
 world_frame: odom           # Defaults to the value of odom_frame if unspecified
 
 
-odom0: "topic name from DVL"
+odom0: /manta/odom
 odom0_config: [false,  false,  true,
                false, false, false,
                true, true, true,
@@ -83,7 +83,6 @@ imu0_differential: false
 imu0_relative: true
 imu0_queue_size: 4
 
-imu1:
 
 imu0_remove_gravitational_acceleration: true
 
