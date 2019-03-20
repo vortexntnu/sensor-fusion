@@ -2,7 +2,7 @@
 #     Copyright (c) 2019 Manta AUV, Vortex NTNU.
 #     All rights reserved.
 
-frequency: 25
+frequency: 125
 sensor_timeout: 0.1
 two_d_mode: false
 transform_time_offset: 0.0
@@ -23,7 +23,7 @@ world_frame: odom           # Defaults to the value of odom_frame if unspecified
 
 # DVL
 odom0: /manta/odom
-odom0_config: [false,  false, true, # x, y, z
+odom0_config: [false,  false, false, # x, y, z
                false, false, false,  # roll, pitch, yaw
                true, true, true,     # vx, vy, vz
                false, false, true,   # vroll, vpitch, vyaw
@@ -37,12 +37,12 @@ odom0_relative: false
 
 
 # Imu
-imu0: /manta/ahrs
+imu0: /imu/ahrs
 imu0_config: [false, false, false, # x, y, z
               true,  true,  true,  # roll, pitch, yaw
               false, false, false, # vx, vy, vz
               true,  true,  true,  # vroll, vpitch, vyaw
-              true,  true,  true]  # ax, ay, az
+              false,  false,  false]  # ax, ay, az
 imu0_nodelay: false
 imu0_differential: false
 imu0_relative: false #true
