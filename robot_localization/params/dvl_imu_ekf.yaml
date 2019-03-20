@@ -35,9 +35,9 @@ odom0_relative: false
 #odom0_pose_rejection_threshold: 5
 #odom0_twist_rejection_threshold: 1
 
-# Imu
 
-imu0: /manta/imu
+# Imu
+imu0: /manta/ahrs
 imu0_config: [false, false, false, # x, y, z
               true,  true,  true,  # roll, pitch, yaw
               false, false, false, # vx, vy, vz
