@@ -21,10 +21,10 @@
 	file = "$(find imu_complementary_filter)/launch/complementary_filter.launch" 
 	/>
 
-	<!-- Kalman filter -->
+	<!-- Kalman filter - UKF -->
 
 	<include
-	file = "$(find robot_localization)/launch/ekf_template.launch"
+	file = "$(find robot_localization)/launch/ukf_sensor_fusion.launch"
 	/>
 
 	<!-- DVL -->

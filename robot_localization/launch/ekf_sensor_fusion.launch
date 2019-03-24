@@ -20,14 +20,24 @@
 	<!-- Kalman filter -->
 
 	<include
-	file = "$(find robot_localization)/launch/ukf_sensor_fusion.launch"
+	file = "$(find robot_localization)/launch/ekf_template.launch"
 	/>
+	
+	<!--Static transform from base_link to imu_frame --> 
 
-	   <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu0" args="0 0 0 0 0 0 base_link imu_0" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu0" args="0 0 0 0 0 0 base_link imu_0 100" />
+
 
 	<!-- DVL -->
 	
 	<node pkg="dvl1000_ros" type="publisherDVL1000.py" name="publisherDVL1000" />
+	
+
+	<!--Static transform from base_link to DVL_frame --> 
+
+	<node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_DVL" args="0 0 0 0 0 0 base_link dvl_link 100" />
+	
+	
 	
 	<!--EM7180 (IMU - magnetometer) -->
 	
