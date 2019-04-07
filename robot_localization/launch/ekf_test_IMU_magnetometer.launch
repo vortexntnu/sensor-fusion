@@ -28,10 +28,10 @@
 	<node pkg="tf" type="static_transform_publisher" name="base_link_to_imu0" args="0 0 0 0 0 0 base_link imu_0 100" />
 
 
-	<!--EM7180 (IMU - magnetometer) -->
+	<!--EM7180 (IMU - magnetometer and visualizer) -->
 
 	<include
-	file="$(find ros_em7180)/launch/em7180.launch"
+	file="$(find em7180)/launch/em7180.launch"
 	/>
 
 	<!--Static transform from base_link to EM7180_frame -->
