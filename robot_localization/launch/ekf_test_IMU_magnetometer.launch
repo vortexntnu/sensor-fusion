@@ -20,7 +20,7 @@
 	<!-- Kalman filter -->
 
 	<include
-	file = "$(find robot_localization)/launch/ekf_template.launch"
+	file = "$(find robot_localization)/launch/ekf_imu.launch"
 	/>
 	
 	<!--Static transform from base_link to imu_frame --> 
