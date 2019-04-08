@@ -34,14 +34,4 @@
 	file="$(find em7180)/launch/em7180.launch"
 	/>
 
-	<!--Static transform from base_link to EM7180_frame -->
-
-	<node pkg="tf" type="static_transform_publisher" name="base_link_to_em7180" args="0 0 0 0 0 0 base_link magnetometer_link 100" />
-
-
-
-	
-
-
-
 </launch>
