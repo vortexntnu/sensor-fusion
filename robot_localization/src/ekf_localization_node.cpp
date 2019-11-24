@@ -33,14 +33,39 @@
 #include "robot_localization/ros_filter_types.h"
 
 #include <ros/ros.h>
+#include <std_msgs/Bool.h>
+#include <iostream>
+
+class Ekf_node{
+protected:
+    ros::NodeHandle nh;
+    ros::Subscriber sub;
+    RobotLocalization::RosEkf ekf;
+public:
+    Ekf_node()
+    {
+        sub = nh.subscribe("/mission_trigger", 1, &Ekf_node::triggerCallback, this);
+    }
+
+    void triggerCallback(const std_msgs::Bool& msg)
+    {
+        ekf.reset();
+        ROS_INFO("Resetting ekf");
+    }
+
+    void run()
+    {
+        ekf.run();
+    }
+};
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "ekf_navigation_node");
+    ros::init(argc, argv, "ekf_navigation_node");
 
-  RobotLocalization::RosEkf ekf;
+    Ekf_node ekf_node;
+    ekf_node.run();
+    ros::spin();
 
-  ekf.run();
-
-  return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
